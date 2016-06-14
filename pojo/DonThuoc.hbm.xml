@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2016 11:31:38 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="pojo.DonThuoc" table="DonThuoc">
+        <id name="m_madt" type="int" access="field">
+            <column name="MaDT" />
+            <generator class="increment" />
+        </id>
+        <property name="m_soluong" type="int" access="field">
+            <column name="SoLuong" />
+        </property>
+        <property name="m_donvi" type="java.lang.String" access="field">
+            <column name="DonVi" />
+        </property>
+        <property name="m_cachdung" type="java.lang.String" access="field">
+            <column name="CachDung" />
+        </property>
+        <property name="m_loaithuoc" type="java.lang.String" access="field">
+            <column name="LoaiThuoc" />
+        </property>
+        <many-to-one name="m_pkb" class="pojo.PhieuKhamBenh" access="field" lazy="false" fetch="join">
+            <column name="MaPKB" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

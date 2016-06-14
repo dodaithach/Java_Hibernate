@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 23, 2016 11:31:38 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="pojo.PhieuKhamBenh" table="PhieuKhamBenh">
+        <id name="m_maphieu" type="int" access="field">
+            <column name="MaPKB" />
+            <generator class="increment" />
+        </id>
+        <property name="m_ngaykham" type="java.util.Date" access="field">
+            <column name="NgayKham" />
+        </property>
+        <property name="m_trieuchung" type="java.lang.String" access="field">
+            <column name="TrieuChung" />
+        </property>
+        <property name="m_tenbenh" type="java.lang.String" access="field">
+            <column name="TenBenh" />
+        </property>
+        <set name="m_donthuoc" table="DonThuoc" inverse="false" lazy="false" access="field">
+            <key>
+                <column name="MaPKB" />
+            </key>
+            <one-to-many class="pojo.DonThuoc" />
+        </set>
+        <many-to-one name="m_benhnhan" class="pojo.BenhNhan" access="field" lazy="false" fetch="join">
+            <column name="MaBN" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
